@@ -60,16 +60,16 @@ int main() {
     int temp;
 
     // Title Display
-    cout << "******************************************************************************" << endl;
+    cout << setfill('*') << setw(78) << "*" << endl; // Make a Line
     cout << R"(
          __  __       _   _   _____      _           __     ___  _
         |  \/  | __ _| |_| |_|_   _|   _| |_ ___  _ _\ \   / / || |
         | |\/| |/ _` | __| '_ \| || | | | __/ _ \| '__\ \ / /| || |_
         | |  | | (_| | |_| | | | || |_| | || (_) | |   \ V / |__   _|
         |_|  |_|\__,_|\__|_| |_|_| \__,_|\__\___/|_|    \_/     |_|   )" << endl << endl;
-    cout << "******************************************************************************" << endl;
+    cout << setfill('*') << setw(78) << "*" << endl; // Make a Line
     cout << "*    Welcome to Version 4 of the Awesome Math Tutor!        *" << endl;
-    cout << "******************************************************************************" << endl;
+    cout << setfill('*') << setw(78) << "*" << endl; // Make a Line
 
     // Math Facts
     cout << "   Un-fun math rules:" << endl << endl;
@@ -77,7 +77,7 @@ int main() {
     cout << "* Laughing results in weekend detention." << endl;
     cout << "* You must recite 1000 digits of Pi numbers at the start of each class period." << endl;
     cout << "* If it seems easy, you're wrong." << endl;
-    cout << "******************************************************************************" << endl;
+    cout << setfill('*') << setw(78) << "*" << endl; // Make a Line
 
     //basic query to get user name
     cout << "Please enter your Username:" << endl;;
@@ -158,7 +158,7 @@ int main() {
             /// Correct Answer
             if (userAnswer == correctAnswer) {
                 totalCorrect++; // Increase Correct Answer Counter
-                rowVector.push_back(i);
+                rowVector.push_back(i + 1);
                 cout << "You got it right. Good!" << endl;
                 break;
             }
@@ -226,15 +226,21 @@ int main() {
 
     } while (userInput == "yes" || userInput == "y");
 
-    cout << "Thank you for using MathTutorV3 to study! V4 is coming soon!" << endl;
+    // Summary Report
+    cout << setfill('*') << setw(32) << "*" << endl; // Make a Line
+    cout << "         Summary Report" << endl;
+    cout << setfill('*') << setw(32) << "*" << endl; // Make a Line
+    cout << "Level      Question      Attempt" << endl;
+    cout << "-----  ----------------  -------" << endl;
+
+    // Reset Counters
+    totalCorrect = 0;
+    totalIncorrect = 0;
 
     for (int i = 0; i < questionsVector.size(); i++) {
-        cout << questionsVector.at(i).at(0) << " ";
-        cout << questionsVector.at(i).at(1) << " ";
-        cout << static_cast<char>(questionsVector.at(i).at(2)) << " ";
-        cout << questionsVector.at(i).at(3) << " ";
-        cout << questionsVector.at(i).at(4) << " ";
-        cout << questionsVector.at(i).at(5) << endl;
+
     }
+
+    cout << "Thank you for using MathTutorV4 to study! V5 is coming soon!" << endl;
     return 0;
 }
