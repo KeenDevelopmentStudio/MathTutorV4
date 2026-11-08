@@ -33,24 +33,16 @@ This is the fourth iteration of the MathTutor program. In this update, we added 
 ## Console Output Testing Example
 
 Leveling Up
-```
 <img width="526" height="577" alt="image" src="https://github.com/user-attachments/assets/b95f782a-be82-4c43-b72b-ed2ae1489ff6" />
-```
 
 Leveling Down
-```
 <img width="517" height="633" alt="image" src="https://github.com/user-attachments/assets/66e069ae-50c2-4e1a-9994-7d1d6c0fdde7" />
-```
 
 Invalid Number
-```
 <img width="516" height="481" alt="image" src="https://github.com/user-attachments/assets/bd0f6ecf-1bf7-4ed8-a8f5-3c9ab1994b08" />
-```
 
 Invalid Yes/No Input
-```
 <img width="691" height="322" alt="image" src="https://github.com/user-attachments/assets/34102b25-c39b-49d1-8a00-a0f2aaa5dcf3" />
-```
 
 Summary Report
 ```
