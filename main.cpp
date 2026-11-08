@@ -13,12 +13,14 @@
  *****************************************************************************************************************/
 
 // Include Libraries
-#include <iostream> // Adds c-in and c-out
+#include <iostream> // Adds cin and cout Commands, PLUS Left and Right Alignments
 #include <ctime> // Adds usage for time(0)
 #include <string> // Allows for manipulating strings
 #include <limits> // Allows for limiting of values with cin.ignore
 #include <cstdlib> // Adds randomization
-#include <cctype> // Adds character handling like to-lower
+#include <cctype> // Adds character handling like tolower Commands
+#include <vector> // Allows for use of Vectors
+#include <iomanip> // Allows for setw Command
 
 // Set Default Namespace
 using namespace std;
@@ -26,45 +28,47 @@ using namespace std;
 int main() {
 
     // Initial Variables
-
-    // Constants
+    /// Constants
     const int maxAttempts = 3;
     const int LEVEL_RANGE_CHANGE = 10;
 
-    // User's Input Strings
+    /// THE VECTORRRRRR
+    vector<vector<int>> questionsVector;
+
+    /// User's Input Strings
     string username;
     string userInput = "?";
 
-    // Equation Type Variables
+    /// Equation Type Variables
     enum MathType {MT_ADD, MT_SUBTRACT, MT_MULTIPLY, MT_DIVIDE};
     char mathOperator;
 
-    // Math Equation Variables
+    /// Math Equation Variables
     int leftNum;
     int rightNum;
     int mathType;
     int correctAnswer;
 
-    // Math Leveling Variables
+    /// Math Leveling Variables
     int mathLevel = 1;
     int currentRange = 10;
     int totalCorrect = 0;
     int totalIncorrect = 0;
 
-    // Answer and Temporary Storage
+    /// Answer and Temporary Storage
     int userAnswer;
     int temp;
 
     // Title Display
     cout << "******************************************************************************" << endl;
     cout << R"(
-       __  __       _   _   _____      _           __     _______
-      |  \/  | __ _| |_| |_|_   _|   _| |_ ___  _ _\ \   / /___ /
-      | |\/| |/ _` | __| '_ \| || | | | __/ _ \| '__\ \ / /  |_ \
-      | |  | | (_| | |_| | | | || |_| | || (_) | |   \ V /  ___) |
-      |_|  |_|\__,_|\__|_| |_|_| \__,_|\__\___/|_|    \_/  |____/  )" << endl << endl;
+         __  __       _   _   _____      _           __     ___  _
+        |  \/  | __ _| |_| |_|_   _|   _| |_ ___  _ _\ \   / / || |
+        | |\/| |/ _` | __| '_ \| || | | | __/ _ \| '__\ \ / /| || |_
+        | |  | | (_| | |_| | | | || |_| | || (_) | |   \ V / |__   _|
+        |_|  |_|\__,_|\__|_| |_|_| \__,_|\__\___/|_|    \_/     |_|   )" << endl << endl;
     cout << "******************************************************************************" << endl;
-    cout << "*    Welcome to Version 3 of the Awesome Math Tutor!        *" << endl;
+    cout << "*    Welcome to Version 4 of the Awesome Math Tutor!        *" << endl;
     cout << "******************************************************************************" << endl;
 
     // Math Facts
@@ -135,6 +139,8 @@ int main() {
                 cout << "Please report this problem to the developers." << endl;
                 return -1;
         }
+        // Declare 1D vector
+        vector<int> rowVector = {mathLevel, leftNum, mathOperator, rightNum, correctAnswer};
 
         // Request Math Answer
         for (int i = 0; i <= maxAttempts; i++) {
@@ -152,7 +158,8 @@ int main() {
             /// Correct Answer
             if (userAnswer == correctAnswer) {
                 totalCorrect++; // Increase Correct Answer Counter
-                cout << "You got it right. Good!" << endl << endl;
+                rowVector.push_back(i);
+                cout << "You got it right. Good!" << endl;
                 break;
             }
 
@@ -160,9 +167,10 @@ int main() {
             else {
                 if (i == maxAttempts) { // Out of Math Question Attempts
                     totalIncorrect++; // Increase Incorrect Answer Counter
+                    rowVector.push_back(0);
                     cout << "You got it wrong. Disappointing." << endl;
                     cout << "The correct answer was: " << correctAnswer << endl;
-                    cout << "You are a failure..." << endl << endl;
+                    cout << "You are a failure..." << endl;
                 }
                 else { // Still Has Math Question Attempts
                     cout << "You got it wrong. Disappointing." << endl;
@@ -171,6 +179,8 @@ int main() {
             }
         }
 
+        // Updating Questions Vector
+        questionsVector.push_back(rowVector);
         // Leveling Up mathLevel
         if (totalCorrect >= 3) {
             mathLevel++; // Increase Level by 1
@@ -192,7 +202,7 @@ int main() {
         }
 
         // Request Additional Questions
-        cout << "Would you like to continue? (y / yes || n / no): " << endl << endl;
+        cout << "Would you like to continue? (y / yes || n / no): " << endl;
 
         // Clears Lines From Input Buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -217,5 +227,14 @@ int main() {
     } while (userInput == "yes" || userInput == "y");
 
     cout << "Thank you for using MathTutorV3 to study! V4 is coming soon!" << endl;
+
+    for (int i = 0; i < questionsVector.size(); i++) {
+        cout << questionsVector.at(i).at(0) << " ";
+        cout << questionsVector.at(i).at(1) << " ";
+        cout << static_cast<char>(questionsVector.at(i).at(2)) << " ";
+        cout << questionsVector.at(i).at(3) << " ";
+        cout << questionsVector.at(i).at(4) << " ";
+        cout << questionsVector.at(i).at(5) << endl;
+    }
     return 0;
 }
