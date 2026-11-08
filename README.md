@@ -1,4 +1,4 @@
-# Math Tutor V3
+# Math Tutor V4
 
 <b>Table of Content</b>
 - [Summary](#summary)
@@ -7,13 +7,10 @@
 - [Console Output Example](#console-output-example)
 
 ## Summary
-This is the third iteration of the MathTutor program. In this update, we added these features:
-  - Enumerations for Math Type
-  - Customizable amount of questions
-  - Improved error catching for inputs.
-  - Increasing difficulty on multiple correct questions
-  - Decreasing difficulty on multiple incorrect questions
-  - Larger range of questions based on math Level
+This is the fourth iteration of the MathTutor program. In this update, we added these features:
+- Storing answers and questions in a table
+- This table is then revealed at the end
+- You can see what questions you answered and how you did
 
 
 ## Maintainers
@@ -21,154 +18,42 @@ This is the third iteration of the MathTutor program. In this update, we added t
 
 
 ## New Concepts Used
-Enum:
-- I learned how to use a enum to swap between our switch statement instead of using a number. This allows for more customization and easier to read code.
-
-While Loop
-- I used While Loops to endlessly loop while a condition was true.
-
-Cin Ignore
-- I used cin.ignore to clear the cin line to prevent readlines from getting confused.
+  - Vectors for storing data
+      - Vectors allow for a list of items to be stored in varying amounts.
+  - 2D Vectors to store tables of data
+      - 2D Vectors could hold even more like a table.
+  - Data extraction from vectors to make a summary report
+      - The data in a Vector can be called upon at any time.
+  - Setfill line generation
+      - This gave us easier and faster ways of making lines.
+  - Text Alignment
+      - This gave us more organization and room for better visuals
   
 
 ## Console Output Testing Example
 
 Leveling Up
 ```
-Welcome to the Math Tutor Keen!
-[Level #1] Keen, what is the answer to 10 x 4?
-40
-
-You got it right. Good!
-
-Would you like to continue? (y / yes || n / no):
-
-y
-
-[Level #1] Keen, what is the answer to 1 x 3?
-3
-
-You got it right. Good!
-
-Would you like to continue? (y / yes || n / no):
-
-y
-
-[Level #1] Keen, what is the answer to 8 x 9?
-72
-
-You got it right. Good!
-
-You have risen to Math Level 2
-Your new range is 0 - 20
+<img width="526" height="577" alt="image" src="https://github.com/user-attachments/assets/b95f782a-be82-4c43-b72b-ed2ae1489ff6" />
 ```
 
 Leveling Down
 ```
-[Level #2] Keen, what is the answer to 11 x 2?
-67
-
-You got it wrong. Disappointing.
-You have 3 attempts left.
-[Level #2] Keen, what is the answer to 11 x 2?
-67
-
-You got it wrong. Disappointing.
-You have 2 attempts left.
-[Level #2] Keen, what is the answer to 11 x 2?
-67
-
-You got it wrong. Disappointing.
-You have 1 attempts left.
-[Level #2] Keen, what is the answer to 11 x 2?
-67
-
-You got it wrong. Disappointing.
-The correct answer was: 22
-You are a failure...
-
-Would you like to continue? (y / yes || n / no):
-y
-
-[Level #2] Keen, what is the answer to 7 + 9?
-67
-
-You got it wrong. Disappointing.
-You have 3 attempts left.
-[Level #2] Keen, what is the answer to 7 + 9?
-67
-
-You got it wrong. Disappointing.
-You have 2 attempts left.
-[Level #2] Keen, what is the answer to 7 + 9?
-67
-
-You got it wrong. Disappointing.
-You have 1 attempts left.
-[Level #2] Keen, what is the answer to 7 + 9?
-67
-
-You got it wrong. Disappointing.
-The correct answer was: 16
-You are a failure...
-
-Would you like to continue? (y / yes || n / no):
-y
-
-[Level #2] Keen, what is the answer to 5 x 4?
-67
-
-You got it wrong. Disappointing.
-You have 3 attempts left.
-[Level #2] Keen, what is the answer to 5 x 4?
-67
-
-You got it wrong. Disappointing.
-You have 2 attempts left.
-[Level #2] Keen, what is the answer to 5 x 4?
-67
-
-You got it wrong. Disappointing.
-You have 1 attempts left.
-[Level #2] Keen, what is the answer to 5 x 4?
-67
-
-You got it wrong. Disappointing.
-The correct answer was: 20
-You are a failure...
-
-You have fallen to Math Level 1
-Your new range is 0 - 10
+<img width="517" height="633" alt="image" src="https://github.com/user-attachments/assets/66e069ae-50c2-4e1a-9994-7d1d6c0fdde7" />
 ```
 
 Invalid Number
 ```
-[Level #1] Keen, what is the answer to 1 + 7?
-Eight
-
-Invalid input. Please enter a number:
-I SAID EIGHT
-
-Invalid input. Please enter a number:
-8
-
-You got it right. Good!
+<img width="516" height="481" alt="image" src="https://github.com/user-attachments/assets/bd0f6ecf-1bf7-4ed8-a8f5-3c9ab1994b08" />
 ```
 
 Invalid Yes/No Input
 ```
-Would you like to continue? (y / yes || n / no):
-maybe
-
-Invalid input. Please enter a correct answer (y / yes || n / no):
-perhaps
-
-Invalid input. Please enter a correct answer (y / yes || n / no):
-n
-
-Thank you for using MathTutorV3 to study! V4 is coming soon!
-
-Process finished with exit code 0
+<img width="691" height="322" alt="image" src="https://github.com/user-attachments/assets/34102b25-c39b-49d1-8a00-a0f2aaa5dcf3" />
 ```
 
+Summary Report
+```
+<img width="631" height="758" alt="image" src="https://github.com/user-attachments/assets/0eb610da-6695-4452-a58e-df28b8d6c880" />
+```
 [Back to Top](#math-tutor-v3)
