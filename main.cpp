@@ -54,6 +54,7 @@ int main() {
     int currentRange = 10;
     int totalCorrect = 0;
     int totalIncorrect = 0;
+    int totalAttempts = 0;
 
     /// Answer and Temporary Storage
     int userAnswer;
@@ -227,19 +228,52 @@ int main() {
     } while (userInput == "yes" || userInput == "y");
 
     // Summary Report
-    cout << setfill('*') << setw(32) << "*" << endl; // Make a Line
+    cout << setfill('*') << setw(34) << "*" << endl; // Make a Line
     cout << "         Summary Report" << endl;
-    cout << setfill('*') << setw(32) << "*" << endl; // Make a Line
-    cout << "Level      Question      Attempt" << endl;
-    cout << "-----  ----------------  -------" << endl;
+    cout << setfill('*') << setw(34) << "*" << endl; // Make a Line
+    cout << "Level       Question        Attempt" << endl;
+    cout << "----- | ---------------- | ---------" << endl;
+    cout << setfill(' '); // Reset setfill()
 
     // Reset Counters
     totalCorrect = 0;
     totalIncorrect = 0;
 
+    // Generate Report
     for (int i = 0; i < questionsVector.size(); i++) {
 
+        // Extract Data from Vector
+        mathLevel = questionsVector.at(i).at(0);
+        leftNum = questionsVector.at(i).at(1);
+        mathOperator = static_cast<char>(questionsVector.at(i).at(2));
+        rightNum = questionsVector.at(i).at(3);
+        correctAnswer = questionsVector.at(i).at(4);
+        totalAttempts = questionsVector.at(i).at(5);
+
+        // cout Summary Report Printing
+        cout << "   " << setw(2) << right << mathLevel << " | " ;
+        cout << setw(3) << right << leftNum << " " ;
+        cout << setw(1) << mathOperator << " " ;
+        cout << setw(3) << left <<  rightNum << " = " ;
+        cout << setw(4) << right << correctAnswer << " | ";
+
+        // Printing Attempts
+        if (totalAttempts != 0) {
+            cout << "    " << totalAttempts << endl;
+            totalCorrect++; // Increase Correct Count
+        }
+        else {
+            cout << "Incorrect" << endl;
+            totalIncorrect++; // Increase Incorrect Count
+        }
     }
+
+    // Summary Totals
+    cout << endl;
+    cout << "Total Questions: " << setw(4) << right << questionsVector.size() << endl;
+    cout << "Total Correct:   " << setw(4) << right << totalCorrect << endl;
+    cout << "Total Incorrect: " << setw(4) << right << totalIncorrect << endl;
+    cout << "Average Correct: " << setw(4) << right << ((totalCorrect * 100) / questionsVector.size()) << "%" << endl << endl;;
 
     cout << "Thank you for using MathTutorV4 to study! V5 is coming soon!" << endl;
     return 0;
